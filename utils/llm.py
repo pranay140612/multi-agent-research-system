@@ -1,6 +1,6 @@
 """
-LLM Client wrapper for NVIDIA NIM API (OpenAI-compatible).
-Uses Gemma 4 31B IT model via NVIDIA's inference endpoint.
+LLM Client wrapper for generic OpenAI-compatible APIs.
+Uses a configured model via the specified endpoint.
 """
 
 import json
@@ -9,17 +9,17 @@ from config import Config
 
 
 class LLMClient:
-    """Wrapper around NVIDIA NIM API for agent reasoning."""
+    """Wrapper around LLM API for agent reasoning."""
 
     def __init__(self):
-        if not Config.NVIDIA_API_KEY:
+        if not Config.LLM_API_KEY:
             raise ValueError(
-                "NVIDIA_API_KEY not set! Copy .env.example to .env and add your key.\n"
-                "Get a key at: https://build.nvidia.com"
+                "LLM_API_KEY not set! Copy .env.example to .env and add your key.\n"
+                "Get a key at your preferred provider's website"
             )
-        self.api_key = Config.NVIDIA_API_KEY
-        self.model = Config.NVIDIA_MODEL
-        self.base_url = Config.NVIDIA_BASE_URL
+        self.api_key = Config.LLM_API_KEY
+        self.model = Config.LLM_MODEL
+        self.base_url = Config.LLM_BASE_URL
         self.client = httpx.AsyncClient(timeout=180.0)
 
     async def generate(self, prompt: str, system_instruction: str = "") -> str:

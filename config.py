@@ -12,10 +12,10 @@ load_dotenv()
 class Config:
     """Central configuration for the multi-agent system."""
 
-    # LLM Settings (NVIDIA NIM API)
-    NVIDIA_API_KEY: str = os.getenv("NVIDIA_API_KEY", "")
-    NVIDIA_MODEL: str = os.getenv("NVIDIA_MODEL", "google/gemma-4-31b-it")
-    NVIDIA_BASE_URL: str = "https://integrate.api.nvidia.com/v1"
+    # LLM Settings
+    LLM_API_KEY: str = os.getenv("LLM_API_KEY", "")
+    LLM_MODEL: str = os.getenv("LLM_MODEL", "your-default-model")
+    LLM_BASE_URL: str = os.getenv("LLM_BASE_URL", "https://api.yourprovider.com/v1")
 
     # Browser Settings
     BROWSER_HEADLESS: bool = os.getenv("BROWSER_HEADLESS", "false").lower() == "true"
@@ -29,6 +29,6 @@ class Config:
     @classmethod
     def validate(cls) -> bool:
         """Validate that required configuration is set."""
-        if not cls.NVIDIA_API_KEY:
+        if not cls.LLM_API_KEY:
             return False
         return True

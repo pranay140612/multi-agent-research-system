@@ -133,10 +133,10 @@ If enough data has been collected, you can end with just a "done" step."""
             new_steps.append(Step(
                 id=next_id,
                 action=action,
-                description=step_data.get("description", ""),
-                target=step_data.get("target", ""),
-                data_to_extract=step_data.get("data_to_extract", ""),
-                success_criteria=step_data.get("success_criteria", ""),
+                description=step_data.get("description") or "",
+                target=step_data.get("target") or "",
+                data_to_extract=step_data.get("data_to_extract") or "",
+                success_criteria=step_data.get("success_criteria") or "",
             ))
             next_id += 1
 
@@ -156,12 +156,12 @@ If enough data has been collected, you can end with just a "done" step."""
                 action = ActionType.READ_PAGE
 
             step = Step(
-                id=step_data.get("id", len(plan.steps) + 1),
+                id=step_data.get("id") or (len(plan.steps) + 1),
                 action=action,
-                description=step_data.get("description", ""),
-                target=step_data.get("target", ""),
-                data_to_extract=step_data.get("data_to_extract", ""),
-                success_criteria=step_data.get("success_criteria", ""),
+                description=step_data.get("description") or "",
+                target=step_data.get("target") or "",
+                data_to_extract=step_data.get("data_to_extract") or "",
+                success_criteria=step_data.get("success_criteria") or "",
             )
             plan.steps.append(step)
 

@@ -1,6 +1,6 @@
 # 🤖 Multi-Agent Browser System
 
-An AI-powered multi-agent system that autonomously browses the web, researches topics, and compiles structured reports — powered by **Google Gemini AI** and **Playwright**.
+An AI-powered multi-agent system that autonomously browses the web, researches topics, and compiles structured reports — powered by your **preferred LLM** and **Playwright**.
 
 ## Architecture
 
@@ -30,8 +30,8 @@ User Prompt → Planner Agent → Browser Controller → Webpage Reader → Acti
 2. **Configure API key:**
    ```bash
    cp .env.example .env
-   # Edit .env and add your Gemini API key
-   # Get a free key at: https://aistudio.google.com/apikey
+   # Edit .env and add your LLM API key
+   # Get a free key at your provider's website
    ```
 
 3. **Run:**
@@ -51,7 +51,7 @@ User Prompt → Planner Agent → Browser Controller → Webpage Reader → Acti
 
 ## How It Works
 
-1. **Planning** — The Planner Agent uses Gemini to decompose your query into 8-15 browser actions
+1. **Planning** — The Planner Agent uses an LLM to decompose your query into 8-15 browser actions
 2. **Execution** — Each step runs through: Browser Action → Content Extraction → LLM Analysis → Verification
 3. **Adaptation** — The system dynamically adjusts the plan based on what it discovers
 4. **Report** — All collected data is compiled into a structured markdown report
@@ -73,6 +73,6 @@ User Prompt → Planner Agent → Browser Controller → Webpage Reader → Acti
 ├── models/
 │   └── schemas.py             # Data models (Plan, Step, Result)
 └── utils/
-    ├── llm.py                 # Gemini API client
+    ├── llm.py                 # LLM API client
     └── logger.py              # Rich terminal logging
 ```

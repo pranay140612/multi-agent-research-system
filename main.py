@@ -40,7 +40,7 @@ def show_banner():
     banner.append("🤖 Multi-Agent Browser System", style="bold bright_white")
     banner.append("               ║\n", style="bright_blue")
     banner.append("║  ", style="bright_blue")
-    banner.append("Powered by Gemma 4 (NVIDIA NIM) + Playwright", style="dim")
+    banner.append("Powered by your preferred LLM + Playwright", style="dim")
     banner.append("             ║\n", style="bright_blue")
     banner.append("╚══════════════════════════════════════════════════╝", style="bright_blue")
     console.print(banner)
@@ -51,10 +51,10 @@ def check_config():
     """Validate configuration before running."""
     if not Config.validate():
         console.print(Panel(
-            "[red bold]NVIDIA_API_KEY not set![/red bold]\n\n"
+            "[red bold]LLM_API_KEY not set![/red bold]\n\n"
             "1. Copy [cyan].env.example[/cyan] to [cyan].env[/cyan]\n"
-            "2. Add your NVIDIA NIM API key\n"
-            "3. Get a key at: [link]https://build.nvidia.com[/link]",
+            "2. Add your LLM provider API key\n"
+            "3. Get a key at your preferred provider's website",
             title="⚠️ Configuration Error",
             border_style="red",
         ))

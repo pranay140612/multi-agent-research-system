@@ -115,18 +115,18 @@ class AgentLogger:
             
             if isinstance(step, dict):
                 table.add_row(
-                    str(step.get("id", "")),
-                    step.get("action", ""),
-                    step.get("description", "")[:40],
-                    step.get("target", "")[:30],
+                    str(step.get("id") or ""),
+                    str(step.get("action") or ""),
+                    str(step.get("description") or "")[:40],
+                    str(step.get("target") or "")[:30],
                     icon,
                 )
             else:
                 table.add_row(
                     str(step.id),
-                    step.action.value,
-                    step.description[:40],
-                    step.target[:30],
+                    str(step.action.value if step.action else ""),
+                    str(step.description or "")[:40],
+                    str(step.target or "")[:30],
                     icon,
                 )
 
@@ -151,7 +151,7 @@ class AgentLogger:
         console.print(Panel(
             Text.from_markup(
                 "[bold bright_blue]Multi-Agent Browser System[/bold bright_blue]\n"
-                "[dim]Powered by Gemini AI + Playwright[/dim]"
+                "[dim]Powered by your preferred LLM + Playwright[/dim]"
             ),
             border_style="bright_blue",
             padding=(1, 2),
